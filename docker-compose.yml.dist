@@ -1,0 +1,35 @@
+services:
+  nginx_sandbox:
+    image: dionerait/nginx:fcgi-common
+    networks:
+      sandbox:
+        ipv4_address: 172.18.112.20
+    volumes:
+      - ./nginx-default.conf:/etc/nginx/conf.d/default.conf
+      - ./src:/srv
+    depends_on:
+      - php-sandbox
+    restart: on-failure
+
+  php-sandbox:
+    image: dionerait/php:8.3-fpm-common-debug
+    environment:
+      XDEBUG_MODE: "debug"
+      PHP_IDE_CONFIG: "serverName=sandbox"
+      XDEBUG_CONFIG: "idekey=sandbox client_port=9001 client_host=host.docker.internal"
+      XDEBUG_SESSION: "sandbox"
+    networks:
+      - sandbox
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./src:/srv
+
+networks:
+  sandbox:
+    name: sandbox
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.112.0/24

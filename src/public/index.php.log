@@ -1,0 +1,12 @@
+#20 | : {"bildschirmgroesse":"1920px x 1080px","netzwerkinfo":"1 Mbit/s (4g)","betriebssystem":"X11; Linux x86_64","browser":"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36","message":"hjguz"}
+#22 | : Array
+(
+    [bildschirmgroesse] => 1920px x 1080px
+    [netzwerkinfo] => 1 Mbit/s (4g)
+    [betriebssystem] => X11; Linux x86_64
+    [browser] => Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+    [message] => hjguz
+)
+
+#23 | : No error
+#24 | : 0
